@@ -130,7 +130,7 @@ std::vector<float> CliffDetector::generateCliffLookup(int scan_size){
         // thresh_laser_scan.push_back(middle_laser_length/cos( (i * lidar_resolution_ - (lidar_resolution_/2)) * DEG2RAD));
 
         //without offset
-        thresh_laser_scan.push_back(middle_laser_length/ cos( (i * lidar_resolution_) * DEG2RAD) + cliff_thresh_constant_);
+        thresh_laser_scan.push_back(middle_laser_length/ cos( (i * lidar_resolution_) * DEG2RAD)*cos( (i * lidar_resolution_) * DEG2RAD) + cliff_thresh_constant_);
     }
 
     failsafe_max_count_ = scan_size * failsafe_threshold_percentage_;
